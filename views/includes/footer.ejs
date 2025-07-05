@@ -1,0 +1,53 @@
+<footer class="border-top bg-light py-4 mt-5">
+  <div class="container">
+    <div class="row align-items-center text-center text-md-start">
+      <!-- Social Icons -->
+      <div class="col-md-4 mb-3 mb-md-0">
+        <div class="d-flex justify-content-center justify-content-md-start gap-3 fs-4">
+          <a href="#" class="footer-icon" aria-label="Instagram"><i class="fa-brands fa-square-instagram"></i></a>
+          <a href="#" class="footer-icon" aria-label="Facebook"><i class="fa-brands fa-square-facebook"></i></a>
+          <a href="#" class="footer-icon" aria-label="Twitter"><i class="fa-brands fa-square-twitter"></i></a>
+          <a href="#" class="footer-icon" aria-label="LinkedIn"><i class="fa-brands fa-square-linkedin"></i></a>
+          <a href="#" class="footer-icon" aria-label="GitHub"><i class="fa-brands fa-square-github"></i></a>
+          <a href="#" class="footer-icon" aria-label="YouTube"><i class="fa-brands fa-square-youtube"></i></a>
+        </div>
+      </div>
+      <!-- Company Name & Copyright -->
+      <div class="col-md-4 mb-3 mb-md-0">
+        <span class="fw-bold" style="color: rgb(200,0,0); font-size: 1.1rem; letter-spacing: 1px;">
+          <i class="ri-building-4-fill" style="font-size: 1.2rem; vertical-align: middle;"></i>
+          Rentkar Private Limited
+        </span>
+        <div class="small text-muted">© <%= new Date().getFullYear() %> All rights reserved.</div>
+      </div>
+      <!-- Links -->
+      <div class="col-md-4">
+        <div class="d-flex justify-content-center justify-content-md-end gap-3">
+          <a href="/privacy" class="footer-link">Privacy</a>
+          <span class="text-muted">|</span>
+          <a href="/terms" class="footer-link">Terms</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<style>
+  .footer-icon {
+    color: #222;
+    transition: color 0.2s;
+  }
+  .footer-icon:hover {
+    color: rgb(200,0,0);
+    text-decoration: none;
+  }
+  .footer-link {
+    color: #222;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .footer-link:hover {
+    color: rgb(200,0,0);
+    text-decoration: underline;
+  }
+</style>

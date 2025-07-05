@@ -1,0 +1,82 @@
+<% layout("/layouts/boilerplate") -%>
+
+    <body>
+
+        <form method="post" action="/listings/<%= listing._id %>?_method=PUT" novalidate class="needs-validation"
+            enctype="multipart/form-data">
+            <div class="row mt-3">
+                <div class="col-8 offset-2">
+                    <h1>Edit you listing</h1>
+                    <div class="mb-3">
+                        <label class="form-label" for="title">Title</label>
+                        <input class="form-control" name="listing[title]" value="<%= listing.title %>" required>
+                        <div class="valid-feedback">Title looks good!</div>
+                        <div class="invalid-feedback">Please enter a title.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="description">Description</label>
+                        <textarea class="form-control" name="listing[description]"
+                            required><%= listing.description %></textarea>
+                        <div class="valid-feedback">Description looks good!</div>
+                        <div class="invalid-feedback">Please enter a description.</div>
+                    </div>
+                    <div class="mb-3">
+                        Original Image:
+                        <img src="<%= listing.image.url %>" alt="listing_image" class="img-thumbnail"
+                            style="max-width: 150px; max-height: 150px; object-fit: cover;">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="image">Image</label>
+                        <input type="file" class="form-control" name="listing[image]">
+                        <div class="valid-feedback">Image URL looks good!</div>
+                        <div class="invalid-feedback">Please enter an image URL.</div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3">
+                            <label class="form-label" for="price">Price</label>
+                            <input class="form-control" name="listing[price]" value="<%= listing.price %>" required>
+                            <div class="valid-feedback">Price looks good!</div>
+                            <div class="invalid-feedback">Please enter a price.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="country" class="form-label">Country</label>
+                            <input class="form-control" name="listing[country]" value="<%= listing.country %>" required>
+                            <div class="valid-feedback">Country looks good!</div>
+                            <div class="invalid-feedback">Please enter a country.</div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="location">Location</label>
+                        <input class="form-control" name="listing[location]" value="<%= listing.location %>" required>
+                        <div class="valid-feedback">Location looks good!</div>
+                        <div class="invalid-feedback">Please enter a location.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="category">Category</label>
+                        <select class="form-select" name="listing[category]">
+                            <option value="">-- Keep Existing --</option>
+                            <option value="beach" <%=listing.category==='beach' ? 'selected' : '' %>>Beach</option>
+                            <option value="lake" <%=listing.category==='lake' ? 'selected' : '' %>>Lake</option>
+                            <option value="mountain" <%=listing.category==='mountain' ? 'selected' : '' %>>Mountain
+                            </option>
+                            <option value="cabin" <%=listing.category==='cabin' ? 'selected' : '' %>>Cabin</option>
+                            <option value="villa" <%=listing.category==='villa' ? 'selected' : '' %>>Villa</option>
+                            <option value="arctic" <%=listing.category==='arctic' ? 'selected' : '' %>>Arctic</option>
+                            <option value="forest" <%=listing.category==='forest' ? 'selected' : '' %>>Forest</option>
+                            <option value="desert" <%=listing.category==='desert' ? 'selected' : '' %>>Desert</option>
+                            <option value="city" <%=listing.category==='city' ? 'selected' : '' %>>City</option>
+                            <option value="campfire" <%=listing.category==='campfire' ? 'selected' : '' %>>Campfire
+                            </option>
+                            <option value="snow" <%=listing.category==='snow' ? 'selected' : '' %>>Snow</option>
+                            <option value="hotel" <%=listing.category==='hotel' ? 'selected' : '' %>>Hotel</option>
+                        </select>
+                    </div>
+
+
+                    <button class="btn btn-dark edit-btn mt-3" type="submit">Update</button>
+                    <br><br>
+
+        </form>
+        </div>
+        </div>
+    </body>

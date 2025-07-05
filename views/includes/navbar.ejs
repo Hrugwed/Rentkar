@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top py-3">
+  <div class="container">
+    <div class="d-flex w-100 align-items-center justify-content-between">
+      <!-- Left: Brand -->
+      <a class="navbar-brand d-flex align-items-center py-2" href="/listings">
+        <i class="fa-solid fa-compass me-2"></i>
+        <span class="explore-link">Rentkar</span>
+      </a>
+      <!-- Center: Search bar -->
+      <form class="mx-auto py-2 px-3 w-100" action="/listings" method="GET" style="max-width: 550px;">
+        <div class="position-relative">
+          <input type="text" name="q" class="form-control ps-4 pe-5 py-3 rounded-pill shadow-sm"
+            placeholder="Search by location or title..." aria-label="Search" />
+          <button type="submit"
+            class="btn btn-danger position-absolute top-50 translate-middle-y end-0 me-2 rounded-circle d-flex align-items-center justify-content-center search-inside-btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+      </form>
+      <!-- Right: Nav links -->
+      <div class="navbar-nav ms-auto d-flex align-items-center py-2">
+        <a class="nav-link active" href="/listings/new">Rent your home</a>
+        <% if (!currentUser) { %>
+          <a class="nav-link" href="/user/signup"><b>Sign Up</b></a>
+          <a class="nav-link" href="/user/login"><b>Login</b></a>
+          <% } else { %>
+            <a class="nav-link" href="/user/logout"><b>Logout</b></a>
+            <% } %>
+      </div>
+    </div>
+  </div>
+</nav>

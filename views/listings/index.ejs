@@ -1,0 +1,126 @@
+<% layout("/layouts/boilerplate") -%>
+
+  <body>
+    <div class="container mt-4">
+      <div class="filters d-flex gap-3 overflow-auto py-3 px-2">
+        <a href="/listings?category=beach" class="text-decoration-none text-dark">
+          <div class="filter d-flex flex-column align-items-center text-center">
+            <i class="fa-solid fa-umbrella-beach fa-lg mb-1"></i>
+            <small>Beach</small>
+          </div>
+        </a>
+
+        <a href="/listings?category=lake" class="text-decoration-none text-dark">
+          <div class="filter d-flex flex-column align-items-center text-center">
+            <i class="fa-solid fa-water fa-lg mb-1"></i>
+            <small>Lake</small>
+          </div>
+        </a>
+
+        <a href="/listings?category=mountain" class="text-decoration-none text-dark">
+          <div class="filter d-flex flex-column align-items-center text-center">
+            <i class="fa-solid fa-mountain fa-lg mb-1"></i>
+            <small>Mountain</small>
+          </div>
+        </a>
+
+        <a href="/listings?category=cabin" class="text-decoration-none text-dark">
+          <div class="filter d-flex flex-column align-items-center text-center">
+            <i class="fa-solid fa-campground fa-lg mb-1"></i>
+            <small>Cabin</small>
+          </div>
+        </a>
+
+        <a href="/listings?category=villa" class="text-decoration-none text-dark">
+          <div class="filter d-flex flex-column align-items-center text-center">
+            <i class="fa-solid fa-house-chimney fa-lg mb-1"></i>
+            <small>Villa</small>
+          </div>
+        </a>
+
+        <a href="/listings?category=arctic" class="text-decoration-none text-dark">
+          <div class="filter d-flex flex-column align-items-center text-center">
+            <i class="fa-solid fa-igloo fa-lg mb-1"></i>
+            <small>Arctic</small>
+          </div>
+        </a>
+
+        <a href="/listings?category=forest" class="text-decoration-none text-dark">
+          <div class="filter d-flex flex-column align-items-center text-center">
+            <i class="fa-solid fa-tree fa-lg mb-1"></i>
+            <small>Forest</small>
+          </div>
+        </a>
+
+        <a href="/listings?category=desert" class="text-decoration-none text-dark">
+          <div class="filter d-flex flex-column align-items-center text-center">
+            <i class="fa-solid fa-wind fa-lg mb-1"></i>
+            <small>Desert</small>
+          </div>
+        </a>
+
+        <a href="/listings?category=city" class="text-decoration-none text-dark">
+          <div class="filter d-flex flex-column align-items-center text-center">
+            <i class="fa-solid fa-city fa-lg mb-1"></i>
+            <small>City</small>
+          </div>
+        </a>
+
+        <a href="/listings?category=campfire" class="text-decoration-none text-dark">
+          <div class="filter d-flex flex-column align-items-center text-center">
+            <i class="fa-solid fa-fire fa-lg mb-1"></i>
+            <small>Campfire</small>
+          </div>
+        </a>
+
+        <a href="/listings?category=snow" class="text-decoration-none text-dark">
+          <div class="filter d-flex flex-column align-items-center text-center">
+            <i class="fa-solid fa-snowflake fa-lg mb-1"></i>
+            <small>Snow</small>
+          </div>
+        </a>
+
+        <a href="/listings?category=hotel" class="text-decoration-none text-dark">
+          <div class="filter d-flex flex-column align-items-center text-center">
+            <i class="fa-solid fa-hotel fa-lg mb-1"></i>
+            <small>Hotel</small>
+          </div>
+        </a>
+
+        <!-- Tax Toggle Switch -->
+        <div class="tax_switch ms-3 d-flex align-items-center">
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="taxSwitch" />
+            <label class="form-check-label" for="taxSwitch">Include taxes</label>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="row row-cols-lg-4 row-cols-md-2 row-cols-1 gx-5 justify-content-center">
+        <% for (let listing of listings) { %>
+          <div class="col d-flex justify-content-center">
+            <a href="/listings/<%= listing.id %>" style="text-decoration:none;">
+              <div class="card listing-card" style="width: 20rem;">
+                <img src="<%= listing.image.url %>" class="card-img-top" alt="listing image">
+                <div class="card-img-overlay"></div>
+                <div class="card-body">
+                  <p class="card-text">
+                    <b>
+                      <%= listing.title %>
+                    </b><br>
+                    &#8377;<span class="priceText" data-price="<%= listing.price %>">
+                      <%= listing.price.toLocaleString("en-IN") %>
+                    </span>/night
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <% } %>
+      </div>
+    </div>
+  </body>
+  <script src="/js/taxShow.js"></script>
