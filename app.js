@@ -78,12 +78,6 @@ async function main() {
     await mongoose.connect(db_Url)
 };
 
-
-
-app.get('/', (req, res) => {
-    res.send('i am root');
-});
-
 app.use((req, res, next) => {
     res.locals.success = req.flash('success');
     res.locals.update = req.flash('update');
