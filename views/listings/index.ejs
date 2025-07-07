@@ -96,32 +96,31 @@
         </div>
       </div>
 
-
-
-
+      
       <div class="container">
-        <div class="listing-grid d-flex flex-wrap justify-content-center gap-4">
+        <div class="row row-cols-lg-4 row-cols-md-2 row-cols-sm-1 justify-content-center g-4">
           <% for (let listing of listings) { %>
-            <div class="card listing-card" style="width: 20rem; min-width: 20rem;">
-              <div style="height: 220px; overflow: hidden;">
-                <img src="<%= listing.image.url %>" class="card-img-top" alt="listing image"
-                  style="width: 100%; height: 100%; object-fit: cover;">
-              </div>
-              <div class="card-body">
-                <p class="card-text">
-                  <b>
-                    <%= listing.title %>
-                  </b><br>
-                  &#8377;<span class="priceText" data-price="<%= listing.price %>">
-                    <%= listing.price.toLocaleString("en-IN") %>
-                  </span>/night
-                </p>
+            <div class="col">
+              <div class="card listing-card h-100">
+                <div style="height: 220px; overflow: hidden;">
+                  <img src="<%= listing.image.url %>" class="card-img-top" alt="listing image"
+                    style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="card-body">
+                  <p class="card-text">
+                    <b>
+                      <%= listing.title %>
+                    </b><br>
+                    &#8377;<span class="priceText" data-price="<%= listing.price %>">
+                      <%= listing.price.toLocaleString("en-IN") %>
+                    </span>/night
+                  </p>
+                </div>
               </div>
             </div>
             <% } %>
         </div>
       </div>
-
     </div>
   </body>
   <script src="/js/taxShow.js"></script>
