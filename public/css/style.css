@@ -268,3 +268,13 @@ a{
   color: #FF385C;
 }
 
+.card.listing-card {
+  min-height: 300px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.card.listing-card:hover {
+  transform: scale(1.02);
+}
