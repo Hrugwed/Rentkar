@@ -1,7 +1,6 @@
 <footer class="border-top bg-light py-4 mt-5">
   <div class="container">
     <div class="row align-items-center text-center text-md-start">
-      <!-- Social Icons -->
       <div class="col-md-4 mb-3 mb-md-0">
         <div class="d-flex justify-content-center justify-content-md-start gap-3 fs-4">
           <a href="#" class="footer-icon" aria-label="Instagram"><i class="fa-brands fa-square-instagram"></i></a>
@@ -12,7 +11,6 @@
           <a href="#" class="footer-icon" aria-label="YouTube"><i class="fa-brands fa-square-youtube"></i></a>
         </div>
       </div>
-      <!-- Company Name & Copyright -->
       <div class="col-md-4 mb-3 mb-md-0">
         <span class="fw-bold" style="color: rgb(200,0,0); font-size: 1.1rem; letter-spacing: 1px;">
           <i class="ri-building-4-fill" style="font-size: 1.2rem; vertical-align: middle;"></i>
@@ -20,7 +18,6 @@
         </span>
         <div class="small text-muted">© <%= new Date().getFullYear() %> All rights reserved.</div>
       </div>
-      <!-- Links -->
       <div class="col-md-4">
         <div class="d-flex justify-content-center justify-content-md-end gap-3">
           <a href="/privacy" class="footer-link">Privacy</a>
@@ -31,7 +28,13 @@
     </div>
   </div>
 </footer>
+
+<button id="backToTopBtn" class="btn btn-primary rounded-circle shadow" aria-label="Back to top">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
 <style>
+  /* Existing Footer Styles */
   .footer-icon {
     color: #222;
     transition: color 0.2s;
@@ -50,4 +53,51 @@
     color: rgb(200,0,0);
     text-decoration: underline;
   }
+
+  /* New Styles for Back to Top Button */
+  #backToTopBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed position */
+    bottom: 30px; /* Space from bottom */
+    right: 30px; /* Space from right */
+    z-index: 99; /* Ensure it's on top of other content */
+    border: none; /* Remove border */
+    outline: none; /* Remove outline */
+    background-color: rgb(200,0,0); /* Your brand color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 10px 15px; /* Padding inside the button */
+    border-radius: 50%; /* Make it round */
+    font-size: 1.2rem; /* Icon size */
+    transition: background-color 0.3s, opacity 0.3s; /* Smooth transition */
+  }
+
+  #backToTopBtn:hover {
+    background-color: rgb(170,0,0); /* Darker shade on hover */
+    opacity: 0.9;
+  }
 </style>
+
+<script>
+  // Get the button
+  let mybutton = document.getElementById("backToTopBtn");
+
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+
+  // When the user clicks on the button, scroll to the top of the document
+  mybutton.addEventListener("click", function() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // Smooth scroll
+    });
+  });
+</script>
