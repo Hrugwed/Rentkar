@@ -96,33 +96,21 @@
         </div>
       </div>
 
-
-
-
-      <div class="row row-cols-lg-4 row-cols-md-2 row-cols-1 gx-5 justify-content-center">
-        <% for (let listing of listings) { %>
-          <div class="col d-flex justify-content-center mb-4">
-            <a href="/listings/<%= listing.id %>" style="text-decoration: none;">
-              <div class="card listing-card w-100" style="max-width: 20rem; min-height: 380px;">
-                <!-- Fix image aspect ratio -->
-                <div class="ratio ratio-4x3">
-                  <img src="<%= listing.image.url %>" class="card-img-top object-fit-cover" alt="listing image" />
-                </div>
-
-                <div class="card-body">
-                  <p class="card-text">
-                    <b>
-                      <%= listing.title %>
-                    </b><br>
-                    ₹<span class="priceText" data-price="<%= listing.price %>">
-                      <%= listing.price.toLocaleString("en-IN") %>
-                    </span>/night
-                  </p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <% } %>
+      <div class="card listing-card" style="width: 20rem; min-width: 20rem;">
+        <div style="height: 220px; overflow: hidden;">
+          <img src="<%= listing.image.url %>" class="card-img-top" alt="listing image"
+            style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="card-body">
+          <p class="card-text">
+            <b>
+              <%= listing.title %>
+            </b><br>
+            &#8377;<span class="priceText" data-price="<%= listing.price %>">
+              <%= listing.price.toLocaleString("en-IN") %>
+            </span>/night
+          </p>
+        </div>
       </div>
 
     </div>
