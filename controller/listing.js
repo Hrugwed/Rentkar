@@ -137,13 +137,10 @@ module.exports.updateListing = async (req, res) => {
 
 // Delete
 module.exports.deleteListing = async (req, res) => {
-    let { id } = req.params;
-    const listing = await Listing.findById(id);
-    if (listing?.image?.filename) {
-        await cloudinary.uploader.destroy(listing.image.filename);
-    }
-
+    module.exports.deleteListing = async (req, res) => {
+    let { id } = req.params; 
     await Listing.findByIdAndDelete(id);
-    req.flash('deleteList', 'Listing deleted successfully!');
+    req.flash('success', 'Listing deleted successfully!'); 
     res.redirect('/listings');
+};
 };
